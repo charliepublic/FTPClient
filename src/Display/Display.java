@@ -1,5 +1,3 @@
-
-
 package Display;
 
 import java.awt.Dimension;
@@ -68,7 +66,9 @@ public class Display extends JFrame {
 		
 		@Override
 		public void selectedFile(String path) {
-			if(!Display.this.pi.isConnected()) return;
+			if(!Display.this.pi.isConnected()) {
+				return;
+			}
 			File file=new File(path);
 			
 			try {
@@ -91,10 +91,14 @@ public class Display extends JFrame {
 		
 		@Override
 		public void selectedFile(String path) {
-			if(!Display.this.pi.isConnected()) return;
+			if(!Display.this.pi.isConnected()) {
+				return;
+			}
 			
 			FTPFile fileR=Display.this.pi.getFile(path);
-			if(fileR==null) return;
+			if(fileR==null) {
+				return;
+			}
 			File fileL=new File(Display.this.expLocal.getCurrentPath()+ Constants.FILE_SEPARATOR +fileR.getName());
 			
 			try {

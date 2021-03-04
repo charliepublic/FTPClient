@@ -16,11 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Class that allow to dialog with an remote FTP server trough InputStream/OutputStream
- * @author yapiti
- *
- */
+
 public class PiFTP{
 	private List<PiFTPListener> listeners = new ArrayList<>();
 	private BufferedReader in;
@@ -37,8 +33,12 @@ public class PiFTP{
 	 */
 	public boolean connect(String id, String passwd){
 		try {
-			if(!command("USER "+id).startsWith("331 ")) return false;
-			if(!command("PASS "+passwd).startsWith("230 ")) return false;
+			if(!command("USER "+id).startsWith("331 ")) {
+				return false;
+			}
+			if(!command("PASS "+passwd).startsWith("230 ")) {
+				return false;
+			}
 			
 			if(isConnected()){
 				this.connected=false;

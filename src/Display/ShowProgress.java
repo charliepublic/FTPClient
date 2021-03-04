@@ -9,7 +9,7 @@ import FTP.TransferTask;
 import FTP.TransferTaskListener;
 
 public class ShowProgress extends JPanel {
-	private static final long serialVersionUID = -5585045453142379373L;
+//	private static final long serialVersionUID = -5585045453142379373L;
 
 	public ShowProgress(){
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

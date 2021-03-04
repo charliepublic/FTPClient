@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 public abstract class FileExplorer extends JPanel{
-	private static final long serialVersionUID = -5471662006897342640L;
+//	private static final long serialVersionUID = -5471662006897342640L;
 	private List<FileExplorerListener> listeners = new ArrayList<>();
 	protected DefaultListModel<String> model = new DefaultListModel<>();
 	protected JList<String> list = new JList<>(this.model);
@@ -59,7 +59,9 @@ public abstract class FileExplorer extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				String actionPath=JOptionPane.showInputDialog(lang.getPhrase(Language.NEWFOLDER),
 						FileExplorer.this.path + Constants.FILE_SEPARATOR + FileExplorer.this.model.get(FileExplorer.this.indxPopMenu));
-				if(actionPath!=null) move(FileExplorer.this.indxPopMenu, actionPath);
+				if(actionPath!=null) {
+					move(FileExplorer.this.indxPopMenu, actionPath);
+				}
 				
 			}
 		});
@@ -93,7 +95,9 @@ public abstract class FileExplorer extends JPanel{
 	}
 	
 	protected void notifySelectedFile(String path){
-		for(FileExplorerListener listener : this.listeners) listener.selectedFile(path);
+		for(FileExplorerListener listener : this.listeners) {
+			listener.selectedFile(path);
+		}
 	}
 	
 	private class ListenMouse implements MouseListener{
@@ -104,7 +108,9 @@ public abstract class FileExplorer extends JPanel{
 		public void mouseClicked(MouseEvent e) {
 			if(e.getButton()==MouseEvent.BUTTON1){
 				int index=FileExplorer.this.list.locationToIndex(e.getPoint());
-				if(index!=this.lastIndex) this.nbClick=0;
+				if(index!=this.lastIndex) {
+					this.nbClick=0;
+				}
 				this.lastIndex=index;
 				this.nbClick++;
 				if(this.nbClick==2){

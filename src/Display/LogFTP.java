@@ -10,7 +10,8 @@ import javax.swing.JTextArea;
 import FTP.PiFTPListener;
 
 public class LogFTP extends JPanel implements PiFTPListener{
-	private static final long serialVersionUID = 1719675270912008567L;
+//	private static final long serialVersionUID = 1719675270912008567L;
+
 	private JTextArea text=new JTextArea();
 	private JScrollPane scroll=new JScrollPane(this.text);
 

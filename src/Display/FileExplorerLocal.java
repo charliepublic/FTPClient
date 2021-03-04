@@ -8,6 +8,7 @@ public class FileExplorerLocal extends FileExplorer {
 	private static final long serialVersionUID = 5791387224671240515L;
 	
 	
+	@Override
 	public void setPath(String path){
 		this.path=path;
 		File fileRoot=new File(this.path + Constants.FILE_SEPARATOR);
@@ -81,9 +82,6 @@ public class FileExplorerLocal extends FileExplorer {
 		inf.setTypeFile(file.isDirectory() ? "dir" : "file");
 		inf.setSize(file.length());
 		inf.setDate(new Date(file.lastModified()));
-		/*inf.setPerm(file.getPerm());
-		inf.setUnixOwner(Integer.toString(file.getUnixOwner()));
-		inf.setUnixGroup(Integer.toString(file.getUnixGroup()));*/
 		
 		inf.setLocationRelativeTo(this);
 		inf.setVisible(true);

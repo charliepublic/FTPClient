@@ -59,7 +59,9 @@ public class TransferTask implements Runnable {
 	}
 	
 	protected void notifyTransfered(long transfered){
-		for(TransferTaskListener listener : this.listeners) listener.transfered(transfered);
+		for(TransferTaskListener listener : this.listeners) {
+			listener.transfered(transfered);
+		}
 	}
 	
 	protected void notifyFinish(){

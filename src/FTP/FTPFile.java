@@ -1,18 +1,19 @@
-
 package FTP;
 import java.util.Date;
 
 import Display.Constants;
 
 
+/**
+ * @author wangy
+ */
 public class FTPFile {
-	//private PiFTP ftp;
 	protected int owner;
 	protected int ownerGroup;
 	protected int mode;
 	protected String perm;
 	protected long size;
-	protected String type; //linux-like
+	protected String type;
 	protected String absPath;
 	protected Date date;
 	boolean exist=false;

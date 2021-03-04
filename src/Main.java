@@ -12,7 +12,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		try {
-//			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 		}catch (Exception e){
 			return;
 		}
@@ -31,11 +31,9 @@ public class Main {
 	public static void windowShow(){
 		Display disp=new Display();
 		disp.setSize(800, 600);
-		disp.setTitle("FTP");
+		disp.setTitle("FTP——Client");
 		disp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		disp.setLocationRelativeTo(null);
-
 		disp.setVisible(true);
-		//窗口设置
 	}
 }
