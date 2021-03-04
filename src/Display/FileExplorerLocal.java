@@ -14,7 +14,9 @@ public class FileExplorerLocal extends FileExplorer {
 		File fileRoot=new File(this.path + Constants.FILE_SEPARATOR);
 		this.model.clear();
 		
-		if(!this.path.isEmpty()) this.model.addElement("..");
+		if(!this.path.isEmpty()) {
+			this.model.addElement("..");
+		}
 		for(File file : fileRoot.listFiles()){
 			this.model.addElement(file.getName());
 		}
@@ -39,7 +41,9 @@ public class FileExplorerLocal extends FileExplorer {
 			if(file.isDirectory()){
 				this.setPath(path);
 			}
-			else this.notifySelectedFile(path);
+			else {
+				this.notifySelectedFile(path);
+			}
 			
 		}
 		

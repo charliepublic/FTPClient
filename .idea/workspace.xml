@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cd8bfed1-c6d9-4db9-ae07-382635e18595" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FTP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FTP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/ConnectPan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ConnectPan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerFTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/LogFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/LogFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/ShowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ShowInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/ShowProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ShowProgress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/FTPFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/FTPFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FTP/PiFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/PiFTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FTP/TransferTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/TransferTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +151,16 @@
       <workItem from="1542627742024" duration="218000" />
       <workItem from="1542682004228" duration="395000" />
       <workItem from="1614770305641" duration="1030000" />
-      <workItem from="1614846512167" duration="5446000" />
+      <workItem from="1614846512167" duration="6789000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor init">
+      <created>1614854379140</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614854379140</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -201,6 +203,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor init" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor init" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/FTP/TransferTask.java">

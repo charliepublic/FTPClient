@@ -19,7 +19,9 @@ public class FileExplorerFTP extends FileExplorer {
 	public void setPath(String path) {
 		this.path=path;
 		this.model.clear();
-		if(this.pi==null) return;
+		if(this.pi==null) {
+			return;
+		}
 		
 		List<FTPFile> files=this.pi.getFiles(path);
 		for(FTPFile file : files){
@@ -46,7 +48,9 @@ public class FileExplorerFTP extends FileExplorer {
 		if(file.isDirectory()){
 			setPath(file.getAbsPath());
 		}
-		else notifySelectedFile(path);
+		else {
+			notifySelectedFile(path);
+		}
 		
 	}
 

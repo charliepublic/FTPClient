@@ -57,7 +57,9 @@ public class PiFTP{
 	
 	protected String getVal(String line, String name){
 		int indxF=line.indexOf(name);
-		if(indxF==-1) return null;
+		if(indxF==-1) {
+			return null;
+		}
 		int indxL=line.indexOf(';', indxF);
 		
 		return line.substring(indxF+name.length()+1, indxL);
@@ -74,11 +76,19 @@ public class PiFTP{
 		}
 		file.perm=getVal(line, "perm");
 		file.type=getVal(line, "type");
-		if(!file.isDirectory()) file.size=Long.parseLong(getVal(line, "size"));
+		if(!file.isDirectory()) {
+			file.size=Long.parseLong(getVal(line, "size"));
+		}
 		file.absPath=line.substring(line.lastIndexOf("; ")+2, line.length());
-		if(line.contains("UNIX.owner")) file.owner=Integer.parseInt(getVal(line, "UNIX.owner"));
-		if(line.contains("UNIX.group")) file.owner=Integer.parseInt(getVal(line, "UNIX.group"));
-		if(line.contains("UNIX.mode")) file.owner=Integer.parseInt(getVal(line, "UNIX.mode"));
+		if(line.contains("UNIX.owner")) {
+			file.owner=Integer.parseInt(getVal(line, "UNIX.owner"));
+		}
+		if(line.contains("UNIX.group")) {
+			file.owner=Integer.parseInt(getVal(line, "UNIX.group"));
+		}
+		if(line.contains("UNIX.mode")) {
+			file.owner=Integer.parseInt(getVal(line, "UNIX.mode"));
+		}
 		
 		return file;
 	}
@@ -91,13 +101,19 @@ public class PiFTP{
 	public synchronized List<FTPFile> getFiles(String path){
 		List<FTPFile> list=new ArrayList<>();
 		
-		if(this.type!=Type.A) setMode(Type.A);
+		if(this.type!=Type.A) {
+			setMode(Type.A);
+		}
 		Socket sock=PASV();
-		if(sock==null) return list;
+		if(sock==null) {
+			return list;
+		}
 		
 		try {
 			BufferedReader read = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-			if(!command("MLSD "+path).startsWith("150")) return list;
+			if(!command("MLSD "+path).startsWith("150")) {
+				return list;
+			}
 			
 			String str=read.readLine();
 			while(str!=null){
@@ -161,8 +177,12 @@ public class PiFTP{
 	 */
 	public synchronized boolean move(FTPFile file, String newAbsPath){
 		try {
-			if(!command("RNFR "+file.getAbsPath()).startsWith("350")) return false;
-			if(!command("RNTO "+newAbsPath).startsWith("250")) return false;
+			if(!command("RNFR "+file.getAbsPath()).startsWith("350")) {
+				return false;
+			}
+			if(!command("RNTO "+newAbsPath).startsWith("250")) {
+				return false;
+			}
 			
 
 			file.absPath=newAbsPath;	
@@ -181,15 +201,22 @@ public class PiFTP{
 	 */
 	public synchronized InputStream download(FTPFile file){
 		InputStream in=null;
-		if(this.type!=Type.I) if(!setMode(Type.I)) return in;
+		if(this.type!=Type.I) {
+			if(!setMode(Type.I)) {
+				return in;
+			}
+		}
 		Socket sock=PASV();
-		if(sock==null) return null;
+		if(sock==null) {
+			return null;
+		}
 		
 		try {
 			String log=command("RETR "+file.getAbsPath());
 			
-			if(log.startsWith("125") || log.startsWith("150") || log.startsWith("350"))
-					in=sock.getInputStream();
+			if(log.startsWith("125") || log.startsWith("150") || log.startsWith("350")) {
+				in=sock.getInputStream();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -204,15 +231,20 @@ public class PiFTP{
 	 */
 	public synchronized OutputStream upload(String absPath){
 		OutputStream out=null;
-		if(this.type!=Type.I && !setMode(Type.I)) return out;
+		if(this.type!=Type.I && !setMode(Type.I)) {
+			return out;
+		}
 		Socket sock=PASV();
-		if(sock==null) return null;
+		if(sock==null) {
+			return null;
+		}
 		
 		try {
 			String log=command("STOR "+absPath);
 			
-			if(log.startsWith("125") || log.startsWith("150"))
-					out=sock.getOutputStream();
+			if(log.startsWith("125") || log.startsWith("150")) {
+				out=sock.getOutputStream();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -230,12 +262,20 @@ public class PiFTP{
 			if(file.isDirectory()){
 				List<FTPFile> list=getFiles(file.getAbsPath());
 				
-				for(FTPFile oneFile : list)	if(!delete(oneFile)) return false;
+				for(FTPFile oneFile : list) {
+					if(!delete(oneFile)) {
+						return false;
+					}
+				}
 				
-				if(!command("RMD "+file.getAbsPath()).startsWith("250")) return false;
+				if(!command("RMD "+file.getAbsPath()).startsWith("250")) {
+					return false;
+				}
 			}
 			else{
-				if(!command("DELE "+file.getAbsPath()).startsWith("250")) return false;
+				if(!command("DELE "+file.getAbsPath()).startsWith("250")) {
+					return false;
+				}
 			}
 			
 			file.exist=false;
@@ -294,7 +334,9 @@ public class PiFTP{
 	 * @throws IOException
 	 */
 	protected synchronized String command(String cmd) throws IOException{
-		while(this.in.ready()) notifyReceiveMsg(this.in.readLine()); //secure clearing
+		while(this.in.ready()) {
+			notifyReceiveMsg(this.in.readLine()); //secure clearing
+		}
 		this.out.write(new String(cmd.getBytes(), "UTF-8")+"\r\n");
 		this.out.flush();
 		notifySendMsg(cmd);
@@ -356,7 +398,9 @@ public class PiFTP{
 	 */
 	public void setInputStream(InputStream in){
 		try {
-			if(this.in!=null) this.in.close();
+			if(this.in!=null) {
+				this.in.close();
+			}
 			this.in=new BufferedReader(new InputStreamReader(in, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			System.err.println("WTF?");
@@ -371,7 +415,9 @@ public class PiFTP{
 	 */
 	public void setOutputStream(OutputStream out){
 		try {
-			if(this.out!=null) this.out.close();
+			if(this.out!=null) {
+				this.out.close();
+			}
 			this.out=new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
 		} catch (UnsupportedEncodingException e) { 
 			System.err.println("WTF?");
@@ -402,7 +448,9 @@ public class PiFTP{
 	 * @param msg
 	 */
 	protected void notifyReceiveMsg(String msg){
-		for(PiFTPListener listener : this.listeners) listener.receiveMsg(msg);
+		for(PiFTPListener listener : this.listeners) {
+			listener.receiveMsg(msg);
+		}
 	}
 	
 	/**
@@ -410,21 +458,27 @@ public class PiFTP{
 	 * @param msg
 	 */
 	protected void notifySendMsg(String msg){
-		for(PiFTPListener listener : this.listeners) listener.sendMsg(msg);
+		for(PiFTPListener listener : this.listeners) {
+			listener.sendMsg(msg);
+		}
 	}
 	
 	/**
 	 * Notify listeners
 	 */
 	protected void notifyConnected(){
-		for(PiFTPListener listener : this.listeners) listener.connected();
+		for(PiFTPListener listener : this.listeners) {
+			listener.connected();
+		}
 	}
 	
 	/**
 	 * Notify listeners
 	 */
 	protected void notifyDisconnected(){
-		for(PiFTPListener listener : this.listeners) listener.disconnected();
+		for(PiFTPListener listener : this.listeners) {
+			listener.disconnected();
+		}
 	}
 	
 	public enum Type{

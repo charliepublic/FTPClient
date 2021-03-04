@@ -79,11 +79,15 @@ public class ConnectPan extends JPanel{
 	}
 	
 	protected void notifyConnect(String login, char[] passwd, String host, long port){
-		for(ConnectListener listener : this.listeners) listener.needConnect(login, passwd, host, port);
+		for(ConnectListener listener : this.listeners) {
+			listener.needConnect(login, passwd, host, port);
+		}
 	}
 	
 	protected void notifyDisconnect(){
-		for(ConnectListener listener : this.listeners) listener.needDisconnect();
+		for(ConnectListener listener : this.listeners) {
+			listener.needDisconnect();
+		}
 	}
 	
 	private class ListenText implements KeyListener{
@@ -97,10 +101,12 @@ public class ConnectPan extends JPanel{
 		@Override
 		public void keyReleased(KeyEvent e) {
 			ConnectPan th=ConnectPan.this;
-			if(th.isEnable()) th.button.setEnabled(!th.login.getText().isEmpty() 
-					&& th.passwd.getPassword().length!=0
-					&& !th.host.getText().isEmpty()
-					&& th.port.getValue()!=null);
+			if(th.isEnable()) {
+				th.button.setEnabled(!th.login.getText().isEmpty()
+						&& th.passwd.getPassword().length!=0
+						&& !th.host.getText().isEmpty()
+						&& th.port.getValue()!=null);
+			}
 			
 		}
 
@@ -122,7 +128,9 @@ public class ConnectPan extends JPanel{
 						ConnectPan.this.host.getText(),
 						(Long) ConnectPan.this.port.getValue());
 			}
-			else ConnectPan.this.notifyDisconnect();
+			else {
+				ConnectPan.this.notifyDisconnect();
+			}
 		}
 
 		@Override
