@@ -17,7 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class ConnectPan extends JPanel{
-	private static final long serialVersionUID = 4707425225997730750L;
+//	private static final long serialVersionUID = 4707425225997730750L;
 	private List<ConnectListener> listeners = new ArrayList<>();
 	private JTextField login=new JTextField();
 	private JPasswordField passwd=new JPasswordField();
@@ -44,11 +44,14 @@ public class ConnectPan extends JPanel{
 		this.passwd.addKeyListener(lst);
 		this.host.addKeyListener(lst);
 		this.port.addKeyListener(lst);
-		
+
+		this.login.setText("123");
+		this.passwd.setText("123");
+		this.host.setText("192.168.0.66");
 		this.port.setValue(Long.valueOf(21));
 		
 		this.button=new JButton(lang.getPhrase(Language.CONNECT));
-		button.setEnabled(false);
+		button.setEnabled(true);
 		this.button.addMouseListener(new ConnListener());
 		add(this.button);
 	
@@ -129,6 +132,7 @@ public class ConnectPan extends JPanel{
 						(Long) ConnectPan.this.port.getValue());
 			}
 			else {
+//				System.out.print("-----------------------");
 				ConnectPan.this.notifyDisconnect();
 			}
 		}

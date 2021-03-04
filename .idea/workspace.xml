@@ -4,10 +4,12 @@
     <list default="true" id="cd8bfed1-c6d9-4db9-ae07-382635e18595" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Display/ConnectPan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ConnectPan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerFTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/Language.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display/ShowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ShowInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FTP/PiFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/PiFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/TransferTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/TransferTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,12 +95,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542682408027" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
@@ -111,19 +114,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="FTP" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,7 +141,10 @@
       <workItem from="1542627742024" duration="218000" />
       <workItem from="1542682004228" duration="395000" />
       <workItem from="1614770305641" duration="1030000" />
-      <workItem from="1614846512167" duration="6789000" />
+      <workItem from="1614846512167" duration="8017000" />
+      <workItem from="1614858586937" duration="294000" />
+      <workItem from="1614880774052" duration="4354000" />
+      <workItem from="1614888740630" duration="4507000" />
     </task>
     <task id="LOCAL-00001" summary="refactor init">
       <created>1614854379140</created>
@@ -160,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614854379140</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor init">
+      <created>1614855707352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614855707352</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -207,6 +207,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor init" />
     <option name="LAST_COMMIT_MESSAGE" value="refactor init" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.SocketException" package="java.net" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/FTP/TransferTask.java">

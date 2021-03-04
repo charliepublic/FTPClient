@@ -22,7 +22,7 @@ public abstract class FileExplorer extends JPanel{
 	private List<FileExplorerListener> listeners = new ArrayList<>();
 	protected DefaultListModel<String> model = new DefaultListModel<>();
 	protected JList<String> list = new JList<>(this.model);
-	protected String path= "";
+	protected String path= "D:\\Code_Libaray\\graduate";
 	protected JPopupMenu menu=new JPopupMenu();
 	private int indxPopMenu=-1;
 	private Language lang;

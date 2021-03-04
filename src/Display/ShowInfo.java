@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ShowInfo extends JDialog {
-//	private static final long serialVersionUID = -8863042376712432296L;
 	
 	private JLabel name = new JLabel();
 	private JLabel path = new JLabel();

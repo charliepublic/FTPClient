@@ -71,6 +71,7 @@ public class PiFTP{
 		
 		try {
 			file.date=parseDTF.parse(getVal(line, "modify"));
+
 		} catch (ParseException e) {
 			System.err.println(e.getMessage());
 		}
@@ -116,6 +117,9 @@ public class PiFTP{
 			}
 			
 			String str=read.readLine();
+//			System.out.println("111111");
+//			System.out.println(str);
+//			System.out.println("111111");
 			while(str!=null){
 				FTPFile file=parseLine(str);
 				file.exist=true;
@@ -146,7 +150,10 @@ public class PiFTP{
 		try {
 			if(command("MLST "+path).startsWith("250-")){
 				String line=this.in.readLine();
-				file=parseLine(line.substring(4, line.length()));
+//				System.out.println("111111");
+//				System.out.println(line);
+//				System.out.println("111111");
+				file=parseLine(line);
 				file.exist=true;
 				
 				notifyReceiveMsg(line);
@@ -403,7 +410,7 @@ public class PiFTP{
 			}
 			this.in=new BufferedReader(new InputStreamReader(in, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
-			System.err.println("WTF?");
+			System.err.println("UnsupportedEncodingException");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -420,7 +427,7 @@ public class PiFTP{
 			}
 			this.out=new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
 		} catch (UnsupportedEncodingException e) { 
-			System.err.println("WTF?");
+			System.err.println("UnsupportedEncodingException");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -5,9 +5,6 @@ import java.io.File;
 import java.util.Date;
 
 public class FileExplorerLocal extends FileExplorer {
-	private static final long serialVersionUID = 5791387224671240515L;
-	
-	
 	@Override
 	public void setPath(String path){
 		this.path=path;
@@ -31,8 +28,12 @@ public class FileExplorerLocal extends FileExplorer {
 		String name=this.model.get(index);
 		
 		if(name.equals("..")){
-			path=path.substring(0, path.lastIndexOf(Constants.FILE_SEPARATOR));
-			this.setPath(path);
+			try {
+				path = path.substring(0, path.lastIndexOf("\\"));
+				this.setPath(path);
+			}catch (Exception e){
+				System.out.println("last file path");
+			}
 		}
 		else{
 			path=path + Constants.FILE_SEPARATOR + this.model.get(index);

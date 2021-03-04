@@ -40,14 +40,10 @@ public class Language {
 	}
 
 	public String getPhrase(int phrase) {
-		switch (lang) {
-		case "en":
-			return langEn[phrase];
-		case "fr":
+		if ("fr".equals(lang)) {
 			return langFr[phrase];
-		default:
-			return langEn[phrase];
 		}
+		return langEn[phrase];
 
 	}
 

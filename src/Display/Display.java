@@ -20,7 +20,6 @@ import FTP.PiFTP;
 import FTP.TransferTask;
 
 public class Display extends JFrame {
-	private static final long serialVersionUID = -17473638218276059L;
 	private PiFTP pi=new PiFTP();
 	private Socket sock;
 	private ConnectPan conn=new ConnectPan();
@@ -28,7 +27,9 @@ public class Display extends JFrame {
 	private FileExplorerLocal expLocal=new FileExplorerLocal();
 	private FileExplorerFTP expFTP=new FileExplorerFTP();
 	private ShowProgress progress=new ShowProgress();
-	
+	private JScrollPane scLocal=new JScrollPane(expLocal);
+	private JScrollPane scFTP=new JScrollPane(expFTP);
+	private JPanel panTree=new JPanel();
 	public Display(){
 		JPanel pan=new JPanel();
 		pan.setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
@@ -43,8 +44,7 @@ public class Display extends JFrame {
 		
 		JPanel panTree=new JPanel();
 		panTree.setLayout(new BoxLayout(panTree, BoxLayout.X_AXIS));
-		JScrollPane scLocal=new JScrollPane(this.expLocal);
-		JScrollPane scFTP=new JScrollPane(this.expFTP);
+
 		scLocal.setPreferredSize(new Dimension(400, 560));
 		scFTP.setPreferredSize(new Dimension(400, 560));
 		panTree.add(scLocal);
@@ -59,7 +59,7 @@ public class Display extends JFrame {
 		this.expLocal.addListener(new ListenExpLocal());
 		this.expFTP.addListener(new ListenExpFTP());
 		
-		this.expLocal.setPath(System.getProperty("user.home"));
+		this.expLocal.setPath("D:\\data");
 	}
 	
 	private class ListenExpLocal implements FileExplorerListener{
@@ -84,6 +84,8 @@ public class Display extends JFrame {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
+			expLocal.setPath("D:\\data");
+			panTree.updateUI();
 		}
 	}
 	
@@ -114,6 +116,8 @@ public class Display extends JFrame {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
+			expLocal.setPath("D:\\data");
+			panTree.updateUI();
 		}
 	}
 	
@@ -144,11 +148,8 @@ public class Display extends JFrame {
 				e.printStackTrace();
 			} finally {
 				if (read != null) {
-					try {
-						read.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+//					System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+						read = null;
 				}
 			}
 			
