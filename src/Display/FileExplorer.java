@@ -1,5 +1,7 @@
 package Display;
 
+import repository.Language;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,36 +33,21 @@ public abstract class FileExplorer extends JPanel {
         this.add(this.list);
 
         JMenuItem itemSuppr = new JMenuItem(lang.getPhrase(Language.DELETE));
-        itemSuppr.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                delete(FileExplorer.this.indxPopMenu);
-
-            }
-        });
+        itemSuppr.addActionListener(arg0 -> delete(FileExplorer.this.indxPopMenu));
         this.menu.add(itemSuppr);
 
         JMenuItem itemInfo = new JMenuItem(lang.getPhrase(Language.INFO));
-        itemInfo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                info(FileExplorer.this.indxPopMenu);
-
-            }
-        });
+        itemInfo.addActionListener(arg0 -> info(FileExplorer.this.indxPopMenu));
         this.menu.add(itemInfo);
 
         JMenuItem itemRename = new JMenuItem(lang.getPhrase(Language.MOVE));
-        itemRename.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                String actionPath = JOptionPane.showInputDialog(lang.getPhrase(Language.NEWFOLDER),
-                        FileExplorer.this.path + "/" + FileExplorer.this.model.get(FileExplorer.this.indxPopMenu));
-                if (actionPath != null) {
-                    move(FileExplorer.this.indxPopMenu, actionPath);
-                }
-
+        itemRename.addActionListener(arg0 -> {
+            String actionPath = JOptionPane.showInputDialog(lang.getPhrase(Language.NEWFOLDER),
+                    FileExplorer.this.path + "/" + FileExplorer.this.model.get(FileExplorer.this.indxPopMenu));
+            if (actionPath != null) {
+                move(FileExplorer.this.indxPopMenu, actionPath);
             }
+
         });
         this.menu.add(itemRename);
     }
@@ -122,29 +109,25 @@ public abstract class FileExplorer extends JPanel {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            //Todo nothing
 
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            //Todo nothing
 
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            if (e.isPopupTrigger()) {
-                FileExplorer.this.indxPopMenu = FileExplorer.this.list.locationToIndex(e.getPoint());
-                FileExplorer.this.menu.show(e.getComponent(), e.getX(), e.getY());
-            }
 
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            //Todo nothing
-
+            if (e.isPopupTrigger()) {
+                FileExplorer.this.indxPopMenu = FileExplorer.this.list.locationToIndex(e.getPoint());
+                FileExplorer.this.menu.show(e.getComponent(), e.getX(), e.getY());
+            }
         }
 
     }

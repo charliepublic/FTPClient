@@ -4,6 +4,7 @@ import java.util.List;
 
 import FTP.FTPFile;
 import FTP.PiFTP;
+import repository.ShowInfo;
 
 public class FileExplorerFTP extends FileExplorer {
     private PiFTP pi = null;
@@ -77,9 +78,9 @@ public class FileExplorerFTP extends FileExplorer {
         FTPFile file = this.pi.getFile(this.path + "/" + this.model.get(index));
         ShowInfo inf = new ShowInfo();
 
-        inf.setDir(file.getPath());
-        inf.setName(file.getName());
-        inf.setTypeFile(file.getType());
+        inf.setDir(file.getPath() == null? file.getPath(): " ");
+        inf.setName(file.getName()== null? file.getName(): " ");
+        inf.setTypeFile(file.getType() == null? file.getType(): " ");
         inf.setSize(file.size());
         inf.setDate(file.getDate());
         inf.setPerm(file.getPerm());

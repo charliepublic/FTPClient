@@ -1,7 +1,10 @@
 package Display;
 
+import repository.ShowInfo;
+
 import java.io.File;
 import java.util.Date;
+import java.util.Objects;
 
 public class FileExplorerLocal extends FileExplorer {
     @Override
@@ -13,7 +16,7 @@ public class FileExplorerLocal extends FileExplorer {
         if (!this.path.isEmpty()) {
             this.model.addElement("..");
         }
-        for (File file : fileRoot.listFiles()) {
+        for (File file : Objects.requireNonNull(fileRoot.listFiles())) {
             this.model.addElement(file.getName());
         }
 
@@ -54,7 +57,10 @@ public class FileExplorerLocal extends FileExplorer {
 
         if (!name.equals("..")) {
             File file = new File(this.path + "/" + name);
-            file.delete();
+            boolean result = file.delete();
+            if(!result){
+                System.out.println("delete fail");
+            }
             setPath(this.path);
         }
 
@@ -67,7 +73,10 @@ public class FileExplorerLocal extends FileExplorer {
 
         if (!name.equals("..")) {
             File file = new File(this.path + "/" + name);
-            file.renameTo(new File(newAbsPath));
+            boolean result = file.renameTo(new File(newAbsPath));
+            if(!result){
+                System.out.println("move fail");
+            }
             setPath(this.path);
         }
 

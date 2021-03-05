@@ -1,5 +1,6 @@
-package Display;
+package repository;
 
+import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,11 +48,13 @@ public class ShowInfo extends JDialog {
         right.add(this.owner);
         right.add(this.group);
 
+        left.setAlignmentY(Component.TOP_ALIGNMENT);
+        right.setAlignmentY(Component.TOP_ALIGNMENT);
         getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
         add(left);
         add(right);
 
-        setSize(300, 200);
+        setSize(600, 180);
     }
 
     public void setDir(String dir) {

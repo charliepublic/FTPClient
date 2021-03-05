@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import FTP.FTPFile;
 import FTP.PiFTP;
 import FTP.TransferTask;
+import repository.ShowProgress;
 
 public class Display extends JFrame {
     private PiFTP pi = new PiFTP();

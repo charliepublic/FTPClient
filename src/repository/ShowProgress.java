@@ -1,4 +1,4 @@
-package Display;
+package repository;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
