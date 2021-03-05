@@ -1,4 +1,3 @@
-
 package FTP;
 
 public interface PiFTPListener {
