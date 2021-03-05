@@ -117,9 +117,6 @@ public class PiFTP{
 			}
 			
 			String str=read.readLine();
-//			System.out.println("111111");
-//			System.out.println(str);
-//			System.out.println("111111");
 			while(str!=null){
 				FTPFile file=parseLine(str);
 				file.exist=true;
@@ -150,9 +147,6 @@ public class PiFTP{
 		try {
 			if(command("MLST "+path).startsWith("250-")){
 				String line=this.in.readLine();
-//				System.out.println("111111");
-//				System.out.println(line);
-//				System.out.println("111111");
 				file=parseLine(line);
 				file.exist=true;
 				

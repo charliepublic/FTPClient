@@ -101,8 +101,7 @@ public class Display extends JFrame {
 			if(fileR==null) {
 				return;
 			}
-			File fileL=new File(Display.this.expLocal.getCurrentPath()+ Constants.FILE_SEPARATOR +fileR.getName());
-			
+			File fileL=new File(Display.this.expLocal.getCurrentPath()+"/" +fileR.getName());
 			try {
 				TransferTask trf=new TransferTask(
 						Display.this.pi.download(fileR),

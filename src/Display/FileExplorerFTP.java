@@ -1,5 +1,3 @@
-
-
 package Display;
 
 import java.util.List;
@@ -8,7 +6,6 @@ import FTP.FTPFile;
 import FTP.PiFTP;
 
 public class FileExplorerFTP extends FileExplorer {
-	private static final long serialVersionUID = 5350246563844990461L;
 	private PiFTP pi=null;
 
 	public FileExplorerFTP() {
@@ -42,7 +39,7 @@ public class FileExplorerFTP extends FileExplorer {
 
 	@Override
 	protected void selected(int index) {
-		String path=this.path + Constants.FILE_SEPARATOR + this.model.get(index);
+		String path=this.path + "/" + this.model.get(index);
 		FTPFile file=this.pi.getFile(path);
 		
 		if(file.isDirectory()){
@@ -59,7 +56,7 @@ public class FileExplorerFTP extends FileExplorer {
 		String name=this.model.get(index);
 		
 		if(!name.equals("..")){
-			this.pi.delete(this.pi.getFile(this.path + Constants.FILE_SEPARATOR + this.model.get(index)));
+			this.pi.delete(this.pi.getFile(this.path + "/" + this.model.get(index)));
 			setPath(this.path);
 		}
 		
@@ -70,7 +67,7 @@ public class FileExplorerFTP extends FileExplorer {
 		String name=this.model.get(index);
 		
 		if(!name.equals("..")){
-			this.pi.move(this.pi.getFile(this.path + Constants.FILE_SEPARATOR + this.model.get(index)), newAbsPath);
+			this.pi.move(this.pi.getFile(this.path + "/" + this.model.get(index)), newAbsPath);
 			setPath(this.path);
 		}
 		
@@ -78,7 +75,7 @@ public class FileExplorerFTP extends FileExplorer {
 
 	@Override
 	protected void info(int index) {
-		FTPFile file=this.pi.getFile(this.path + Constants.FILE_SEPARATOR + this.model.get(index));
+		FTPFile file=this.pi.getFile(this.path + "/" + this.model.get(index));
 		ShowInfo inf=new ShowInfo();
 		
 		inf.setDir(file.getPath());

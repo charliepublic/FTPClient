@@ -1,5 +1,3 @@
-
-
 package Display;
 
 import java.awt.BorderLayout;
@@ -18,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 public abstract class FileExplorer extends JPanel{
-//	private static final long serialVersionUID = -5471662006897342640L;
 	private List<FileExplorerListener> listeners = new ArrayList<>();
 	protected DefaultListModel<String> model = new DefaultListModel<>();
 	protected JList<String> list = new JList<>(this.model);
@@ -58,7 +55,7 @@ public abstract class FileExplorer extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String actionPath=JOptionPane.showInputDialog(lang.getPhrase(Language.NEWFOLDER),
-						FileExplorer.this.path + Constants.FILE_SEPARATOR + FileExplorer.this.model.get(FileExplorer.this.indxPopMenu));
+						FileExplorer.this.path + "/" + FileExplorer.this.model.get(FileExplorer.this.indxPopMenu));
 				if(actionPath!=null) {
 					move(FileExplorer.this.indxPopMenu, actionPath);
 				}

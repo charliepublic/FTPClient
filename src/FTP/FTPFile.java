@@ -1,8 +1,6 @@
 package FTP;
 import java.util.Date;
 
-import Display.Constants;
-
 
 /**
  * @author wangy
@@ -60,12 +58,12 @@ public class FTPFile {
 	}
 	
 	public String getPath(){
-		int indx=this.absPath.lastIndexOf(Constants.FILE_SEPARATOR);
+		int indx=this.absPath.lastIndexOf("/");
 		return indx==-1 || indx==0 ? "/" : this.absPath.substring(0,  indx);
 	}
 	
 	public String getName(){
-		int indx=this.absPath.lastIndexOf(Constants.FILE_SEPARATOR);
+		int indx=this.absPath.lastIndexOf("/");
 		return indx==-1 ? new String(this.absPath) : this.absPath.substring(indx+1, this.absPath.length());
 	}
 	
