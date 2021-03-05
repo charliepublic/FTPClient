@@ -127,7 +127,7 @@ public class Display extends JFrame {
 
         @Override
         public void needConnect(String login, char[] passwd, String host, long port) {
-            BufferedReader read = null;
+            BufferedReader read;
             try {
                 Socket socket = new Socket(host, (int) port);
 
@@ -147,13 +147,7 @@ public class Display extends JFrame {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                if (read != null) {
-//					System.out.println("!!!!!!!!!!!!!!!!!!!!!");
-                    read = null;
-                }
             }
-
         }
 
         @Override

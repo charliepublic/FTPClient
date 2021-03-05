@@ -22,7 +22,7 @@ public class ConnectPan extends JPanel {
     private JPasswordField passwd = new JPasswordField();
     private JFormattedTextField host = new JFormattedTextField();
     private JFormattedTextField port = new JFormattedTextField(DecimalFormat.getIntegerInstance());
-    private JButton button = new JButton("Connetion");
+    private JButton button;
     private boolean enabled = true;
     private Language lang;
 
@@ -47,7 +47,7 @@ public class ConnectPan extends JPanel {
         this.login.setText("123");
         this.passwd.setText("123");
         this.host.setText("192.168.0.66");
-        this.port.setValue(Long.valueOf(21));
+        this.port.setValue(21L);
 
         this.button = new JButton(lang.getPhrase(Language.CONNECT));
         button.setEnabled(true);
@@ -96,7 +96,6 @@ public class ConnectPan extends JPanel {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            //Todo nothing
 
         }
 
@@ -114,7 +113,7 @@ public class ConnectPan extends JPanel {
 
         @Override
         public void keyTyped(KeyEvent e) {
-            //Todo nothing
+
         }
 
     }
@@ -130,32 +129,29 @@ public class ConnectPan extends JPanel {
                         ConnectPan.this.host.getText(),
                         (Long) ConnectPan.this.port.getValue());
             } else {
-//				System.out.print("-----------------------");
                 ConnectPan.this.notifyDisconnect();
             }
         }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            //Todo nothing
+
 
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            //Todo nothing
+
 
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            //Todo nothing
 
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            //Todo nothing
 
         }
 

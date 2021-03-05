@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7364d085-a8c1-4356-a54f-290cae7d19ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7364d085-a8c1-4356-a54f-290cae7d19ca" name="Default Changelist" comment="code init">
       <change beforePath="$PROJECT_DIR$/src/Display/ConnectPan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ConnectPan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FileExplorerLocal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/LogFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/LogFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/ShowProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/ShowProgress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/FTPFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/FTPFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/PiFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/PiFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/PiFTPListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/PiFTPListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FTP/TransferTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FTP/TransferTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -79,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614973330048</updated>
       <workItem from="1614973347101" duration="1107000" />
-      <workItem from="1614974526291" duration="1086000" />
+      <workItem from="1614974526291" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1614974456677</created>
@@ -88,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614974456677</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="code init">
+      <created>1614975746201</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614975746201</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +94,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="code init" />
+    <option name="LAST_COMMIT_MESSAGE" value="code init" />
   </component>
 </project>
