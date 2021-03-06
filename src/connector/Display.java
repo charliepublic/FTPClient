@@ -1,4 +1,4 @@
-package Display;
+package connector;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -15,22 +15,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import FTP.FTPFile;
-import FTP.PiFTP;
-import FTP.TransferTask;
-import repository.ShowProgress;
+import LogicRepository.FTPFile;
+import UIRepository.*;
+import UIRepository.ConnectListener;
+import UIRepository.FileExplorerListener;
 
 public class Display extends JFrame {
-    private PiFTP pi = new PiFTP();
+    private final PiFTP pi = new PiFTP();
     private Socket sock;
-    private ConnectPan conn = new ConnectPan();
-    private LogFTP log = new LogFTP();
-    private FileExplorerLocal expLocal = new FileExplorerLocal();
-    private FileExplorerFTP expFTP = new FileExplorerFTP();
-    private ShowProgress progress = new ShowProgress();
-    private JScrollPane scLocal = new JScrollPane(expLocal);
-    private JScrollPane scFTP = new JScrollPane(expFTP);
-    private JPanel panTree = new JPanel();
+    private final ConnectPan conn = new ConnectPan();
+    private final FileExplorerLocal expLocal = new FileExplorerLocal();
+    private final FileExplorerFTP expFTP = new FileExplorerFTP();
+    private final ShowProgress progress = new ShowProgress();
+    private final JPanel panTree = new JPanel();
 
     public Display() {
         JPanel pan = new JPanel();
@@ -40,14 +37,17 @@ public class Display extends JFrame {
         this.conn.setPreferredSize(new Dimension(800, 30));
         pan.add(this.conn);
 
-        this.pi.addLisener(this.log);
-        this.log.setPreferredSize(new Dimension(800, 150));
-        add(this.log);
+        LogFTP log = new LogFTP();
+        this.pi.addLisener(log);
+        log.setPreferredSize(new Dimension(800, 150));
+        add(log);
 
         JPanel panTree = new JPanel();
         panTree.setLayout(new BoxLayout(panTree, BoxLayout.X_AXIS));
 
+        JScrollPane scLocal = new JScrollPane(expLocal);
         scLocal.setPreferredSize(new Dimension(400, 560));
+        JScrollPane scFTP = new JScrollPane(expFTP);
         scFTP.setPreferredSize(new Dimension(400, 560));
         panTree.add(scLocal);
         panTree.add(scFTP);

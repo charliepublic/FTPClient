@@ -1,4 +1,6 @@
-package FTP;
+package connector;
+
+import LogicRepository.TransferTaskListener;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransferTask implements Runnable {
-    private List<TransferTaskListener> listeners = new ArrayList<TransferTaskListener>();
-    private BufferedInputStream in;
-    private BufferedOutputStream out;
-    private long size;
+    private final List<TransferTaskListener> listeners = new ArrayList<>();
+    private final BufferedInputStream in;
+    private final BufferedOutputStream out;
+    private final long size;
 
     public TransferTask(InputStream in, OutputStream out, long size) {
         this.in = new BufferedInputStream(in);
@@ -27,11 +29,10 @@ public class TransferTask implements Runnable {
     @Override
     public void run() {
         byte[] buff = new byte[4096];
-        int read;
         long totalRead = 0;
 
         try {
-            read = this.in.read(buff);
+            int read = this.in.read(buff);
 
             while (read != -1 && totalRead < this.size + 1) {
                 totalRead += read;
@@ -51,10 +52,6 @@ public class TransferTask implements Runnable {
 
     public void addListener(TransferTaskListener listener) {
         this.listeners.add(listener);
-    }
-
-    public boolean removeListener(TransferTaskListener listener) {
-        return this.listeners.remove(listener);
     }
 
     protected void notifyTransfered(long transfered) {

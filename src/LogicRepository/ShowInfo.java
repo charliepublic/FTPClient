@@ -1,4 +1,6 @@
-package repository;
+package LogicRepository;
+
+import tool.Language;
 
 import java.awt.*;
 import java.text.DateFormat;
@@ -12,18 +14,18 @@ import javax.swing.JPanel;
 
 public class ShowInfo extends JDialog {
 
-    private JLabel name = new JLabel();
-    private JLabel path = new JLabel();
-    private JLabel size = new JLabel();
-    private JLabel owner = new JLabel();
-    private JLabel group = new JLabel();
-    private JLabel type = new JLabel();
-    private JLabel date = new JLabel();
-    private JLabel perm = new JLabel();
-    private Language lang;
+    private final JLabel name = new JLabel();
+    private final JLabel path = new JLabel();
+    private final JLabel size = new JLabel();
+    private final JLabel owner = new JLabel();
+    private final JLabel group = new JLabel();
+    private final JLabel type = new JLabel();
+    private final JLabel date = new JLabel();
+    private final JLabel perm = new JLabel();
 
     public ShowInfo() {
-        lang = new Language();
+        Language lang = new Language();
+
         JPanel left = new JPanel();
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
 

@@ -1,4 +1,4 @@
-package FTP;
+package LogicRepository;
 
 public interface PiFTPListener {
 	void receiveMsg(String msg);

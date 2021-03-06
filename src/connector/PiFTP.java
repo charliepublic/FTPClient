@@ -1,4 +1,7 @@
-package FTP;
+package connector;
+
+import LogicRepository.FTPFile;
+import LogicRepository.PiFTPListener;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,13 +12,14 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PiFTP {
-    private List<PiFTPListener> listeners = new ArrayList<>();
+    private final List<PiFTPListener> listeners = new ArrayList<>();
     private BufferedReader in;
     private BufferedWriter out;
     private boolean connected = false;
@@ -68,25 +72,25 @@ public class PiFTP {
         FTPFile file = new FTPFile();
 
         try {
-            file.date = parseDTF.parse(getVal(line, "modify"));
+            file.setDate(parseDTF.parse(getVal(line, "modify")));
 
         } catch (ParseException e) {
             System.err.println(e.getMessage());
         }
-        file.perm = getVal(line, "perm");
-        file.type = getVal(line, "type");
+        file.setPerm(getVal(line, "perm"));
+        file.setType(getVal(line, "type"));
         if (!file.isDirectory()) {
-            file.size = Long.parseLong(getVal(line, "size"));
+            file.setSize(Long.parseLong(getVal(line, "size")));
         }
-        file.absPath = line.substring(line.lastIndexOf("; ") + 2, line.length());
+        file.setAbsPath(line.substring(line.lastIndexOf("; ") + 2));
         if (line.contains("UNIX.owner")) {
-            file.owner = Integer.parseInt(getVal(line, "UNIX.owner"));
+            file.setOwner(Integer.parseInt(getVal(line, "UNIX.owner")));
         }
         if (line.contains("UNIX.group")) {
-            file.owner = Integer.parseInt(getVal(line, "UNIX.group"));
+            file.setOwnerGroup(Integer.parseInt(getVal(line, "UNIX.group")));
         }
         if (line.contains("UNIX.mode")) {
-            file.owner = Integer.parseInt(getVal(line, "UNIX.mode"));
+            file.setMode(Integer.parseInt(getVal(line, "UNIX.mode")));
         }
 
         return file;
@@ -118,7 +122,7 @@ public class PiFTP {
             String str = read.readLine();
             while (str != null) {
                 FTPFile file = parseLine(str);
-                file.exist = true;
+                file.setExist(true);
 
                 list.add(file);
                 str = read.readLine();
@@ -148,8 +152,7 @@ public class PiFTP {
             if (command("MLST " + path).startsWith("250-")) {
                 String line = this.in.readLine();
                 file = parseLine(line);
-                file.exist = true;
-
+                file.setExist(true);
                 notifyReceiveMsg(line);
                 notifyReceiveMsg(this.in.readLine());
             }
@@ -188,7 +191,7 @@ public class PiFTP {
             }
 
 
-            file.absPath = newAbsPath;
+            file.setAbsPath(newAbsPath);
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -283,7 +286,7 @@ public class PiFTP {
                 }
             }
 
-            file.exist = false;
+            file.setExist(false);
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -292,11 +295,7 @@ public class PiFTP {
         return true;
     }
 
-    /**
-     * Return an socket to transfer data in passive mode
-     *
-     * @return
-     */
+
     protected Socket PASV() {
         Socket sock = null;
         String log;
@@ -318,11 +317,7 @@ public class PiFTP {
         return sock;
     }
 
-    /**
-     * We are connected? May be...
-     *
-     * @return yes or no
-     */
+
     public boolean isConnected() {
         return this.connected;
     }
@@ -334,18 +329,12 @@ public class PiFTP {
         this.connected = false;
     }
 
-    /**
-     * Send an command to the server FTP
-     *
-     * @param cmd the command
-     * @return the reply
-     * @throws IOException
-     */
+
     protected synchronized String command(String cmd) throws IOException {
         while (this.in.ready()) {
             notifyReceiveMsg(this.in.readLine()); //secure clearing
         }
-        this.out.write(new String(cmd.getBytes(), "UTF-8") + "\r\n");
+        this.out.write(new String(cmd.getBytes(), StandardCharsets.UTF_8) + "\r\n");
         this.out.flush();
         notifySendMsg(cmd);
 
@@ -371,7 +360,7 @@ public class PiFTP {
         }
         //while(this.in.ready()) notifyReceiveMsg(this.in.readLine()); //secure clearing
 
-        return str == null ? new String() : str;
+        return str == null ? "" : str;
     }
 
     /**
@@ -402,17 +391,13 @@ public class PiFTP {
         return this.type;
     }
 
-    /**
-     * Set the location where reply arrive (warning: you must clean the reply of welcome of FTP server)
-     *
-     * @param in The InputStream
-     */
+
     public void setInputStream(InputStream in) {
         try {
             if (this.in != null) {
                 this.in.close();
             }
-            this.in = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+            this.in = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
         } catch (UnsupportedEncodingException e) {
             System.err.println("UnsupportedEncodingException");
         } catch (IOException e) {
@@ -420,17 +405,13 @@ public class PiFTP {
         }
     }
 
-    /**
-     * Set the location where we must send issue to the server FTP
-     *
-     * @param out
-     */
+
     public void setOutputStream(OutputStream out) {
         try {
             if (this.out != null) {
                 this.out.close();
             }
-            this.out = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+            this.out = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
         } catch (UnsupportedEncodingException e) {
             System.err.println("UnsupportedEncodingException");
         } catch (IOException e) {
@@ -438,59 +419,38 @@ public class PiFTP {
         }
     }
 
-    /**
-     * Add an listener
-     *
-     * @param listener the listener
-     */
+
     public void addLisener(PiFTPListener listener) {
         this.listeners.add(listener);
     }
 
-    /**
-     * Remove an listener
-     *
-     * @param listener the listener
-     * @return find and removed or not
-     */
+
     public boolean removeListener(PiFTPListener listener) {
         return this.listeners.remove(listener);
     }
 
-    /**
-     * Notify listeners
-     *
-     * @param msg
-     */
+
     protected void notifyReceiveMsg(String msg) {
         for (PiFTPListener listener : this.listeners) {
             listener.receiveMsg(msg);
         }
     }
 
-    /**
-     * Notify listeners
-     *
-     * @param msg
-     */
+
     protected void notifySendMsg(String msg) {
         for (PiFTPListener listener : this.listeners) {
             listener.sendMsg(msg);
         }
     }
 
-    /**
-     * Notify listeners
-     */
+
     protected void notifyConnected() {
         for (PiFTPListener listener : this.listeners) {
             listener.connected();
         }
     }
 
-    /**
-     * Notify listeners
-     */
+
     protected void notifyDisconnected() {
         for (PiFTPListener listener : this.listeners) {
             listener.disconnected();

@@ -1,11 +1,11 @@
-package repository;
+package UIRepository;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import FTP.TransferTask;
-import FTP.TransferTaskListener;
+import connector.TransferTask;
+import LogicRepository.TransferTaskListener;
 
 public class ShowProgress extends JPanel {
     public ShowProgress() {

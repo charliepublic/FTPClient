@@ -1,6 +1,6 @@
-package Display;
+package UIRepository;
 
-import repository.ShowInfo;
+import LogicRepository.ShowInfo;
 
 import java.io.File;
 import java.util.Date;

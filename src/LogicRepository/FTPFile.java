@@ -1,4 +1,4 @@
-package FTP;
+package LogicRepository;
 
 import java.util.Date;
 
@@ -17,10 +17,44 @@ public class FTPFile {
     boolean exist = false;
 
 
-    protected FTPFile() {
+    public FTPFile() {
 
     }
+    public void setOwner(int owner) {
+        this.owner = owner;
+    }
 
+    public void setOwnerGroup(int ownerGroup) {
+        this.ownerGroup = ownerGroup;
+    }
+
+    public void setMode(int mode) {
+        this.mode = mode;
+    }
+
+    public void setPerm(String perm) {
+        this.perm = perm;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setAbsPath(String absPath) {
+        this.absPath = absPath;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setExist(boolean exist) {
+        this.exist = exist;
+    }
     public int getUnixOwner() {
         return this.owner;
     }
@@ -64,7 +98,7 @@ public class FTPFile {
 
     public String getName() {
         int indx = this.absPath.lastIndexOf("/");
-        return indx == -1 ? new String(this.absPath) : this.absPath.substring(indx + 1, this.absPath.length());
+        return indx == -1 ? this.absPath : this.absPath.substring(indx + 1);
     }
 
     public String getAbsPath() {

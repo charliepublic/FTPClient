@@ -1,10 +1,10 @@
-package Display;
+package UIRepository;
 
 import java.util.List;
 
-import FTP.FTPFile;
-import FTP.PiFTP;
-import repository.ShowInfo;
+import LogicRepository.FTPFile;
+import connector.PiFTP;
+import LogicRepository.ShowInfo;
 
 public class FileExplorerFTP extends FileExplorer {
     private PiFTP pi = null;

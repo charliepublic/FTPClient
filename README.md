@@ -1,4 +1,4 @@
-FTP
+connector
 ===
 
-An client FTP in Java
+An client connector in Java

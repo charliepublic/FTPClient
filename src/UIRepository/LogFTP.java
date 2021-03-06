@@ -1,4 +1,4 @@
-package Display;
+package UIRepository;
 
 import java.awt.BorderLayout;
 
@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import FTP.PiFTPListener;
+import LogicRepository.PiFTPListener;
 
 public class LogFTP extends JPanel implements PiFTPListener {
     private JTextArea text = new JTextArea();

@@ -1,4 +1,4 @@
-package repository;
+package tool;
 
 public class Language {
     public static final int LOGIN = 1;
@@ -12,14 +12,14 @@ public class Language {
     public static final int INFO = 9;
     public static final int MOVE = 10;
     public static final int NEWFOLDER = 11;
-    static final int INFO_DIR = 12;
-    static final int INFO_NAME = 13;
-    static final int INFO_TYPE = 14;
-    static final int INFO_SIZE = 19;
-    static final int INFO_DATE = 15;
-    static final int INFO_PERM = 16;
-    static final int INFO_OWNER = 17;
-    static final int INFO_GROUP = 18;
+    public static final int INFO_DIR = 12;
+    public static final int INFO_NAME = 13;
+    public static final int INFO_TYPE = 14;
+    public static final int INFO_SIZE = 19;
+    public static final int INFO_DATE = 15;
+    public static final int INFO_PERM = 16;
+    public static final int INFO_OWNER = 17;
+    public static final int INFO_GROUP = 18;
 
     String lang;
     String[] langEn = {"ENGLISH", "User: ", "Password: ", "Host: ", "Port: ", "Connect", "Connected", "Disconnected",

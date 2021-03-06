@@ -1,6 +1,6 @@
-package Display;
+package UIRepository;
 
-import repository.Language;
+import tool.Language;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
