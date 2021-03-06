@@ -3,7 +3,7 @@ package UIRepository;
 import java.util.List;
 
 import LogicRepository.FTPFile;
-import connector.PiFTP;
+import miss.PiFTP;
 import LogicRepository.ShowInfo;
 
 public class FileExplorerFTP extends FileExplorer {

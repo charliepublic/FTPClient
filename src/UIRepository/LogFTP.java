@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import LogicRepository.PiFTPListener;
+import all_interface.PiFTPListener;
 
 public class LogFTP extends JPanel implements PiFTPListener {
     private JTextArea text = new JTextArea();

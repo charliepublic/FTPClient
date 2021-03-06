@@ -1,4 +1,4 @@
-package connector;
+package miss;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -17,10 +17,11 @@ import javax.swing.JScrollPane;
 
 import LogicRepository.FTPFile;
 import UIRepository.*;
-import UIRepository.ConnectListener;
-import UIRepository.FileExplorerListener;
+import all_interface.ConnectListener;
+import all_interface.FileExplorerListener;
+import all_interface.invoke;
 
-public class Display extends JFrame {
+public class Display extends JFrame implements invoke {
     private final PiFTP pi = new PiFTP();
     private Socket sock;
     private final ConnectPan conn = new ConnectPan();
@@ -30,6 +31,15 @@ public class Display extends JFrame {
     private final JPanel panTree = new JPanel();
 
     public Display() {
+        this.setSize(800, 600);
+        this.setTitle("FTP——Client");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+
+    @Override
+    public Object invoke_function(Object object) {
         JPanel pan = new JPanel();
         pan.setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
         setContentPane(pan);
@@ -62,6 +72,7 @@ public class Display extends JFrame {
         this.expFTP.addListener(new ListenExpFTP());
 
         this.expLocal.setPath("D:\\data");
+        return null;
     }
 
     private class ListenExpLocal implements FileExplorerListener {

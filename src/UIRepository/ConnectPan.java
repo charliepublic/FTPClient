@@ -1,5 +1,6 @@
 package UIRepository;
 
+import all_interface.ConnectListener;
 import tool.Language;
 
 import java.awt.event.KeyEvent;

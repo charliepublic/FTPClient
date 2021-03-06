@@ -1,7 +1,7 @@
-package connector;
+package miss;
 
 import LogicRepository.FTPFile;
-import LogicRepository.PiFTPListener;
+import all_interface.PiFTPListener;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
