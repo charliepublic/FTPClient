@@ -4,7 +4,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import miss.TransferTask;
+import mian_part.TransferTask;
 import all_interface.TransferTaskListener;
 
 public class ShowProgress extends JPanel {

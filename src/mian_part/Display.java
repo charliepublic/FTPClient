@@ -1,4 +1,4 @@
-package miss;
+package mian_part;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -19,9 +20,9 @@ import LogicRepository.FTPFile;
 import UIRepository.*;
 import all_interface.ConnectListener;
 import all_interface.FileExplorerListener;
-import all_interface.invoke;
+import all_interface.Invoke;
 
-public class Display extends JFrame implements invoke {
+public class Display extends JFrame implements Invoke{
     private final PiFTP pi = new PiFTP();
     private Socket sock;
     private final ConnectPan conn = new ConnectPan();
@@ -31,15 +32,11 @@ public class Display extends JFrame implements invoke {
     private final JPanel panTree = new JPanel();
 
     public Display() {
-        this.setSize(800, 600);
-        this.setTitle("FTP——Client");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+
     }
 
     @Override
-    public Object invoke_function(Object object) {
+    public Object invoke_function(Object object, ArrayList<Invoke> components) {
         JPanel pan = new JPanel();
         pan.setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
         setContentPane(pan);
@@ -50,7 +47,7 @@ public class Display extends JFrame implements invoke {
         LogFTP log = new LogFTP();
         this.pi.addLisener(log);
         log.setPreferredSize(new Dimension(800, 150));
-        add(log);
+        pan.add(log);
 
         JPanel panTree = new JPanel();
         panTree.setLayout(new BoxLayout(panTree, BoxLayout.X_AXIS));
@@ -72,6 +69,11 @@ public class Display extends JFrame implements invoke {
         this.expFTP.addListener(new ListenExpFTP());
 
         this.expLocal.setPath("D:\\data");
+        this.setSize(800, 600);
+        this.setTitle("FTP——Client");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
         return null;
     }
 
