@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7364d085-a8c1-4356-a54f-290cae7d19ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/mian_part/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LogicRepository/Beauty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicRepository/Beauty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIRepository/FileExplorerFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/FileExplorerFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UIRepository/ShowProgress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/ShowProgress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/all_interface/invoke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/all_interface/Invoke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connector/loop_connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connector/Loop_connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connector/select_connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connector/Select_connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connector/sequence_connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connector/Sequence_connector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miss/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miss/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miss/PiFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/PiFTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/miss/TransferTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/TransferTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connector/Loop_connector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connector/Select_connector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mian_part/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +43,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="profiler.jvm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -88,7 +80,7 @@
       <updated>1614973330048</updated>
       <workItem from="1614973347101" duration="1107000" />
       <workItem from="1614974526291" duration="4482000" />
-      <workItem from="1615024198621" duration="12980000" />
+      <workItem from="1615024198621" duration="14089000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1614974456677</created>
@@ -132,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615038127487</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Select_connector init">
+      <created>1615041754756</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615041754756</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +144,7 @@
     <MESSAGE value="ui update" />
     <MESSAGE value="component unit update" />
     <MESSAGE value="connector init" />
-    <option name="LAST_COMMIT_MESSAGE" value="connector init" />
+    <MESSAGE value="Select_connector init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Select_connector init" />
   </component>
 </project>

@@ -10,10 +10,10 @@ public class Main {
 
     public static void main(String[] args) {
         Beauty beauty = new Beauty();
-        Display disp = new Display();
+        Display display = new Display();
         ArrayList<Invoke> components = new ArrayList<>();
         components.add(beauty);
-        components.add(disp);
+        components.add(display);
         Sequence_connector sequence_connector = new Sequence_connector();
         sequence_connector.invoke_function(null,components);
     }
