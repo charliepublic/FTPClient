@@ -1,8 +1,11 @@
 package UIRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import LogicRepository.FTPFile;
+import all_interface.Invoke;
+import connector.Sequence_connector;
 import mian_part.PiFTP;
 import LogicRepository.ShowInfo;
 
@@ -32,10 +35,6 @@ public class FileExplorerFTP extends FileExplorer {
     public void setPiFTP(PiFTP pi) {
         this.pi = pi;
         this.model.clear();
-    }
-
-    public PiFTP getPiFTP() {
-        return this.pi;
     }
 
     @Override
@@ -77,6 +76,10 @@ public class FileExplorerFTP extends FileExplorer {
     protected void info(int index) {
         FTPFile file = this.pi.getFile(this.path + "/" + this.model.get(index));
         ShowInfo inf = new ShowInfo();
+        ArrayList<Invoke> components = new ArrayList<>();
+        components.add(inf);
+        Sequence_connector sequence_connector = new Sequence_connector();
+        sequence_connector.invoke_function(null,components);
 
         inf.setDir(file.getPath() == null? file.getPath(): " ");
         inf.setName(file.getName()== null? file.getName(): " ");

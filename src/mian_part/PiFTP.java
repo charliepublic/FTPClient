@@ -164,40 +164,26 @@ public class PiFTP {
     }
 
     /**
-     * Rename the file by the given name
-     *
-     * @param file    the file
-     * @param newName his new name
-     * @return success or not
-     */
-    public synchronized boolean rename(FTPFile file, String newName) {
-        return move(file, file.getAbsPath() + "/" + newName);
-    }
-
-    /**
      * Move an file
      *
      * @param file       the file
      * @param newAbsPath his new absolute path
-     * @return sucess or not
      */
-    public synchronized boolean move(FTPFile file, String newAbsPath) {
+    public synchronized void move(FTPFile file, String newAbsPath) {
         try {
             if (!command("RNFR " + file.getAbsPath()).startsWith("350")) {
-                return false;
+                return;
             }
             if (!command("RNTO " + newAbsPath).startsWith("250")) {
-                return false;
+                return;
             }
 
 
             file.setAbsPath(newAbsPath);
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
 
-        return true;
     }
 
     /**
@@ -210,7 +196,7 @@ public class PiFTP {
         InputStream in = null;
         if (this.type != Type.I) {
             if (!setMode(Type.I)) {
-                return in;
+                return null;
             }
         }
         Socket sock = PASV();
@@ -240,7 +226,7 @@ public class PiFTP {
     public synchronized OutputStream upload(String absPath) {
         OutputStream out = null;
         if (this.type != Type.I && !setMode(Type.I)) {
-            return out;
+            return null;
         }
         Socket sock = PASV();
         if (sock == null) {
@@ -358,7 +344,6 @@ public class PiFTP {
 
             throw e;
         }
-        //while(this.in.ready()) notifyReceiveMsg(this.in.readLine()); //secure clearing
 
         return str == null ? "" : str;
     }
@@ -380,15 +365,6 @@ public class PiFTP {
         }
 
         return false;
-    }
-
-    /**
-     * Current mode to transfer data
-     *
-     * @return the mode
-     */
-    public Type getType() {
-        return this.type;
     }
 
 
@@ -425,11 +401,6 @@ public class PiFTP {
     }
 
 
-    public boolean removeListener(PiFTPListener listener) {
-        return this.listeners.remove(listener);
-    }
-
-
     protected void notifyReceiveMsg(String msg) {
         for (PiFTPListener listener : this.listeners) {
             listener.receiveMsg(msg);
@@ -458,7 +429,7 @@ public class PiFTP {
     }
 
     public enum Type {
-        A, E, I, L
+        A, I
     }
 
 }

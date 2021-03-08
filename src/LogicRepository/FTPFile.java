@@ -67,10 +67,6 @@ public class FTPFile {
         return this.type;
     }
 
-    public int getMode() {
-        return this.mode;
-    }
-
     public String getPerm() {
         return this.perm;
     }
@@ -81,14 +77,6 @@ public class FTPFile {
 
     public boolean isDirectory() {
         return this.type.equals("dir") || this.type.equals("cdir") || this.type.equals("pdir");
-    }
-
-    public boolean exist() {
-        return this.exist;
-    }
-
-    public boolean isSimlik() {
-        return false;
     }
 
     public String getPath() {

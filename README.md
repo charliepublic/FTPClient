@@ -1,4 +1,4 @@
-connector
+FTP_client
 ===
 
-An client connector in Java
+An FTP client in Java. This is built by components based development.

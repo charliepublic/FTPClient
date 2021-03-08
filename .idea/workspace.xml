@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="7364d085-a8c1-4356-a54f-290cae7d19ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connector/Loop_connector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connector/Select_connector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mian_part/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LogicRepository/FTPFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicRepository/FTPFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LogicRepository/ShowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicRepository/ShowInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIRepository/ConnectPan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/ConnectPan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIRepository/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/FileExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIRepository/FileExplorerFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/FileExplorerFTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UIRepository/LogFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIRepository/LogFTP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connector/Sequence_connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connector/Sequence_connector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mian_part/PiFTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian_part/PiFTP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1pLrg1KKettIalzS3vyXfXeKA5Y" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
     <option name="foldersAlwaysOnTop" value="false" />
@@ -53,17 +62,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -81,6 +79,7 @@
       <workItem from="1614973347101" duration="1107000" />
       <workItem from="1614974526291" duration="4482000" />
       <workItem from="1615024198621" duration="14089000" />
+      <workItem from="1615193049339" duration="2741000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1614974456677</created>

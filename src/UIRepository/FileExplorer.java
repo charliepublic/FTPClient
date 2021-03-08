@@ -17,13 +17,13 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 public abstract class FileExplorer extends JPanel {
-    private List<FileExplorerListener> listeners = new ArrayList<>();
+    private final List<FileExplorerListener> listeners = new ArrayList<>();
     protected DefaultListModel<String> model = new DefaultListModel<>();
     protected JList<String> list = new JList<>(this.model);
     protected String path = "D:\\Code_Libaray\\graduate";
     protected JPopupMenu menu = new JPopupMenu();
     private int indxPopMenu = -1;
-    private Language lang;
+    private final Language lang;
 
     public FileExplorer() {
         lang = new Language();
@@ -71,10 +71,6 @@ public abstract class FileExplorer extends JPanel {
 
     public void addListener(FileExplorerListener listener) {
         this.listeners.add(listener);
-    }
-
-    public boolean removeListener(FileExplorerListener listener) {
-        return this.listeners.remove(listener);
     }
 
     protected void notifySelectedFile(String path) {

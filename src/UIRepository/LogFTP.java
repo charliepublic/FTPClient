@@ -9,12 +9,12 @@ import javax.swing.JTextArea;
 import all_interface.PiFTPListener;
 
 public class LogFTP extends JPanel implements PiFTPListener {
-    private JTextArea text = new JTextArea();
-    private JScrollPane scroll = new JScrollPane(this.text);
+    private final JTextArea text = new JTextArea();
 
     public LogFTP() {
         setLayout(new BorderLayout());
-        add(this.scroll);
+        JScrollPane scroll = new JScrollPane(this.text);
+        add(scroll);
     }
 
     @Override

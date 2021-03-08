@@ -20,14 +20,14 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class ConnectPan extends JPanel {
-    private List<ConnectListener> listeners = new ArrayList<>();
-    private JTextField login = new JTextField();
-    private JPasswordField passwd = new JPasswordField();
-    private JFormattedTextField host = new JFormattedTextField();
-    private JFormattedTextField port = new JFormattedTextField(DecimalFormat.getIntegerInstance());
-    private JButton button;
+    private final List<ConnectListener> listeners = new ArrayList<>();
+    private final JTextField login = new JTextField();
+    private final JPasswordField passwd = new JPasswordField();
+    private final JFormattedTextField host = new JFormattedTextField();
+    private final JFormattedTextField port = new JFormattedTextField(DecimalFormat.getIntegerInstance());
+    private final JButton button;
     private boolean enabled = true;
-    private Language lang;
+    private final Language lang;
 
     public ConnectPan() {
         lang = new Language();
@@ -77,10 +77,6 @@ public class ConnectPan extends JPanel {
 
     public void addListener(ConnectListener listener) {
         this.listeners.add(listener);
-    }
-
-    public boolean removeListener(ConnectListener listener) {
-        return this.listeners.remove(listener);
     }
 
     protected void notifyConnect(String login, char[] passwd, String host, long port) {
